@@ -63,19 +63,23 @@ export default function Skills() {
   const y = useTransform(scrollYProgress, [0, 0.2], [100, 0])
 
   return (
-    <section id="skills" ref={ref} className="min-h-screen py-20 px-4 md:px-8 bg-gradient-to-b from-gray-900 to-black">
+    <section
+      id="skills"
+      ref={ref}
+      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black"
+    >
       <motion.div style={{ opacity, y }} className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
         >
           Habilidades
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {skills.map((skillGroup, groupIndex) => (
             <motion.div
               key={skillGroup.category}
@@ -83,17 +87,19 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800"
+              className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-300 dark:border-gray-800 shadow-md"
             >
-              <h3 className="text-xl font-bold mb-6 text-center text-blue-400">{skillGroup.category}</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-center text-blue-600 dark:text-blue-400">
+                {skillGroup.category}
+              </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {skillGroup.items.map((skill, index) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center">
                         <motion.i
-                          className={`${iconMap[skill.name] || "devicon-javascript-plain"} text-2xl mr-2 text-blue-500`}
+                          className={`${iconMap[skill.name] || "devicon-javascript-plain"} text-xl sm:text-2xl mr-2 text-blue-600 dark:text-blue-500`}
                           animate={{
                             y: [0, -5, 0],
                           }}
@@ -103,12 +109,12 @@ export default function Skills() {
                             delay: index * 0.2,
                           }}
                         ></motion.i>
-                        <span>{skill.name}</span>
+                        <span className="text-sm sm:text-base text-gray-800 dark:text-gray-200">{skill.name}</span>
                       </div>
-                      <span className="text-sm text-gray-400">{skill.level}%</span>
+                      <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{skill.level}%</span>
                     </div>
                     <motion.div
-                      className="h-2 bg-gray-700 rounded-full overflow-hidden"
+                      className="h-1.5 sm:h-2 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 0.5 }}
@@ -132,4 +138,3 @@ export default function Skills() {
     </section>
   )
 }
-

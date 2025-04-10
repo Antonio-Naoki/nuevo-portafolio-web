@@ -62,7 +62,8 @@
     "@tsparticles/engine": "latest",
     "framer-motion": "latest",
     "@tsparticles/react": "latest",
-    "@tsparticles/slim": "latest"
+    "@tsparticles/slim": "latest",
+    "@emailjs/browser": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

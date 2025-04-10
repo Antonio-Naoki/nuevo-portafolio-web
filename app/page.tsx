@@ -24,7 +24,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black to-gray-900 dark:from-black dark:to-gray-900 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white dark:from-black dark:to-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
       {init && (
         <Particles
           id="tsparticles"
@@ -96,9 +96,7 @@ export default function Home() {
         />
       )}
 
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
+      <ThemeToggle />
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <Hero />
@@ -111,4 +109,3 @@ export default function Home() {
     </main>
   )
 }
-

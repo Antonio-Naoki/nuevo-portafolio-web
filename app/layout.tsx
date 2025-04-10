@@ -7,8 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Developer Portfolio",
-  description: "Full-Stack Developer Portfolio",
+  title: "Antonio Morales | Desarrollador de Software",
+  description:
+    "Portfolio de Antonio Morales, Desarrollador de Software especializado en Flutter, Python y tecnologías web",
     generator: 'v0.dev'
 }
 
@@ -18,16 +19,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange={false}
+          storageKey="antonio-theme-preference"
+        >
           {children}
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
 
 
 import './globals.css'

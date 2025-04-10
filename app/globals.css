@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
@@ -102,4 +103,3 @@ body {
 
 /* Add DevIcon font */
 @import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
-

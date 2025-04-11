@@ -11,6 +11,8 @@ import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import ThemeToggle from "@/components/theme-toggle"
+import FloatingLogos from "@/components/floating-logos"
+import CustomCursor from "@/components/custom-cursor"
 
 export default function Home() {
   const [init, setInit] = useState(false)
@@ -25,6 +27,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white dark:from-black dark:to-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+      <FloatingLogos />
+      <CustomCursor />
       {init && (
         <Particles
           id="tsparticles"

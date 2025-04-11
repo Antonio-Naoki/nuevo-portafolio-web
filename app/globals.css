@@ -103,3 +103,22 @@ body {
 
 /* Add DevIcon font */
 @import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
+
+/* Cursor personalizado */
+@media (hover: hover) and (pointer: fine) {
+  body:has(.custom-cursor-active) {
+    cursor: none;
+  }
+}
+
+/* Asegurarse de que los logos flotantes no interfieran con la interacción */
+.floating-logo {
+  pointer-events: auto;
+  will-change: transform, opacity;
+}
+
+/* Optimizaciones de rendimiento */
+.custom-cursor {
+  will-change: transform;
+  backface-visibility: hidden;
+}

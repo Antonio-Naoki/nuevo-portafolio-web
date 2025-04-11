@@ -22,15 +22,83 @@ export default function FloatingLogos() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [logos, setLogos] = useState<Logo[]>([])
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 })
+  const [exclusionZone, setExclusionZone] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  })
   const animationRef = useRef<number>()
 
-  // Inicializar logos
+  // Inicializar logos y zona de exclusión
   useEffect(() => {
     if (!containerRef.current) return
 
     const container = containerRef.current
     const rect = container.getBoundingClientRect()
     setContainerSize({ width: rect.width, height: rect.height })
+
+    // Definir zona de exclusión (centro de la pantalla)
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const exclusionWidth = Math.min(600, rect.width * 0.6) // Ancho de la zona de exclusión
+    const exclusionHeight = Math.min(400, rect.height * 0.5) // Alto de la zona de exclusión
+
+    setExclusionZone({
+      x: centerX - exclusionWidth / 2,
+      y: centerY - exclusionHeight / 2,
+      width: exclusionWidth,
+      height: exclusionHeight,
+    })
+
+    // Función para generar posiciones distribuidas estratégicamente
+    const generateDistributedPositions = () => {
+      const padding = 80 // Espacio desde los bordes
+      const positions = [
+        // Izquierda superior
+        {
+          x: Math.random() * (exclusionZone.x - padding),
+          y: Math.random() * (exclusionZone.y - padding),
+        },
+        // Izquierda inferior
+        {
+          x: Math.random() * (exclusionZone.x - padding),
+          y:
+            exclusionZone.y +
+            exclusionZone.height +
+            Math.random() * (rect.height - exclusionZone.y - exclusionZone.height - padding),
+        },
+        // Derecha superior
+        {
+          x:
+            exclusionZone.x +
+            exclusionZone.width +
+            Math.random() * (rect.width - exclusionZone.x - exclusionZone.width - padding),
+          y: Math.random() * (exclusionZone.y - padding),
+        },
+        // Derecha inferior
+        {
+          x:
+            exclusionZone.x +
+            exclusionZone.width +
+            Math.random() * (rect.width - exclusionZone.x - exclusionZone.width - padding),
+          y:
+            exclusionZone.y +
+            exclusionZone.height +
+            Math.random() * (rect.height - exclusionZone.y - exclusionZone.height - padding),
+        },
+        // Arriba centro
+        {
+          x: exclusionZone.x + Math.random() * exclusionZone.width,
+          y: Math.max(20, exclusionZone.y - 100 - Math.random() * 50),
+        },
+      ]
+
+      // Mezclar las posiciones para que no siempre el mismo logo vaya al mismo lugar
+      return [...positions].sort(() => Math.random() - 0.5)
+    }
+
+    const distributedPositions = generateDistributedPositions()
 
     const initialLogos: Logo[] = [
       {
@@ -39,7 +107,7 @@ export default function FloatingLogos() {
         alt: "Flutter Logo",
         color: "#027DFD",
         size: { width: 60, height: 60 },
-        position: { x: Math.random() * rect.width * 0.8, y: Math.random() * rect.height * 0.8 },
+        position: distributedPositions[0],
         rotation: Math.random() * 360,
         opacity: 0.8 + Math.random() * 0.2,
         velocity: {
@@ -55,7 +123,7 @@ export default function FloatingLogos() {
         alt: "Python Logo",
         color: "#FFD43B",
         size: { width: 60, height: 60 },
-        position: { x: Math.random() * rect.width * 0.8, y: Math.random() * rect.height * 0.8 },
+        position: distributedPositions[1],
         rotation: Math.random() * 360,
         opacity: 0.8 + Math.random() * 0.2,
         velocity: {
@@ -71,7 +139,7 @@ export default function FloatingLogos() {
         alt: "Firebase Logo",
         color: "#FFCA28",
         size: { width: 60, height: 60 },
-        position: { x: Math.random() * rect.width * 0.8, y: Math.random() * rect.height * 0.8 },
+        position: distributedPositions[2],
         rotation: Math.random() * 360,
         opacity: 0.8 + Math.random() * 0.2,
         velocity: {
@@ -88,7 +156,7 @@ export default function FloatingLogos() {
         alt: "Android Logo",
         color: "#3DDC84",
         size: { width: 60, height: 60 },
-        position: { x: Math.random() * rect.width * 0.8, y: Math.random() * rect.height * 0.8 },
+        position: distributedPositions[3],
         rotation: Math.random() * 360,
         opacity: 0.8 + Math.random() * 0.2,
         velocity: {
@@ -105,7 +173,7 @@ export default function FloatingLogos() {
         alt: "Git Logo",
         color: "#F05032",
         size: { width: 60, height: 60 },
-        position: { x: Math.random() * rect.width * 0.8, y: Math.random() * rect.height * 0.8 },
+        position: distributedPositions[4],
         rotation: Math.random() * 360,
         opacity: 0.8 + Math.random() * 0.2,
         velocity: {
@@ -119,11 +187,24 @@ export default function FloatingLogos() {
 
     setLogos(initialLogos)
 
-    // Ajustar tamaño del contenedor en resize
+    // Ajustar tamaño del contenedor y zona de exclusión en resize
     const handleResize = () => {
       if (!containerRef.current) return
       const newRect = containerRef.current.getBoundingClientRect()
       setContainerSize({ width: newRect.width, height: newRect.height })
+
+      // Actualizar zona de exclusión
+      const newCenterX = newRect.width / 2
+      const newCenterY = newRect.height / 2
+      const newExclusionWidth = Math.min(600, newRect.width * 0.6)
+      const newExclusionHeight = Math.min(400, newRect.height * 0.5)
+
+      setExclusionZone({
+        x: newCenterX - newExclusionWidth / 2,
+        y: newCenterY - newExclusionHeight / 2,
+        width: newExclusionWidth,
+        height: newExclusionHeight,
+      })
     }
 
     window.addEventListener("resize", handleResize)
@@ -172,6 +253,46 @@ export default function FloatingLogos() {
     }, 500)
   }
 
+  // Verificar si un logo está entrando en la zona de exclusión
+  const isEnteringExclusionZone = (position: { x: number; y: number }, size: { width: number; height: number }) => {
+    const buffer = 10 // Buffer para evitar cambios bruscos
+    return (
+      position.x + size.width + buffer > exclusionZone.x &&
+      position.x - buffer < exclusionZone.x + exclusionZone.width &&
+      position.y + size.height + buffer > exclusionZone.y &&
+      position.y - buffer < exclusionZone.y + exclusionZone.height
+    )
+  }
+
+  // Calcular vector de repulsión para alejar el logo de la zona de exclusión
+  const calculateRepulsionVector = (position: { x: number; y: number }, size: { width: number; height: number }) => {
+    const logoCenter = {
+      x: position.x + size.width / 2,
+      y: position.y + size.height / 2,
+    }
+
+    const exclusionCenter = {
+      x: exclusionZone.x + exclusionZone.width / 2,
+      y: exclusionZone.y + exclusionZone.height / 2,
+    }
+
+    // Vector desde el centro de la zona de exclusión hacia el centro del logo
+    const repulsionVector = {
+      x: logoCenter.x - exclusionCenter.x,
+      y: logoCenter.y - exclusionCenter.y,
+    }
+
+    // Normalizar el vector
+    const magnitude = Math.sqrt(repulsionVector.x * repulsionVector.x + repulsionVector.y * repulsionVector.y)
+
+    if (magnitude === 0) return { x: Math.random() - 0.5, y: Math.random() - 0.5 }
+
+    return {
+      x: repulsionVector.x / magnitude,
+      y: repulsionVector.y / magnitude,
+    }
+  }
+
   // Animar logos
   useEffect(() => {
     if (logos.length === 0 || containerSize.width === 0) return
@@ -184,6 +305,22 @@ export default function FloatingLogos() {
           let newY = logo.position.y + logo.velocity.y
           let newVelocityX = logo.velocity.x
           let newVelocityY = logo.velocity.y
+
+          // Comprobar si el logo está entrando en la zona de exclusión
+          const newPosition = { x: newX, y: newY }
+          if (isEnteringExclusionZone(newPosition, logo.size)) {
+            // Calcular vector de repulsión
+            const repulsion = calculateRepulsionVector(logo.position, logo.size)
+
+            // Aplicar repulsión a la velocidad
+            const repulsionStrength = 0.8
+            newVelocityX = repulsion.x * repulsionStrength
+            newVelocityY = repulsion.y * repulsionStrength
+
+            // Actualizar posición con la nueva velocidad
+            newX = logo.position.x + newVelocityX
+            newY = logo.position.y + newVelocityY
+          }
 
           // Rebotar en los bordes
           const padding = 20
@@ -221,7 +358,7 @@ export default function FloatingLogos() {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [logos, containerSize])
+  }, [logos, containerSize, exclusionZone])
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none z-10" aria-hidden="true">

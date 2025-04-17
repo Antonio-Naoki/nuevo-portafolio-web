@@ -3,6 +3,14 @@
 import { motion } from "framer-motion"
 
 export default function Footer() {
+  // Función para manejar la navegación suave a las secciones
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <footer className="relative py-8 sm:py-12 px-4 sm:px-6 overflow-hidden bg-gray-100 dark:bg-transparent">
       <div className="absolute inset-0 overflow-hidden">
@@ -72,14 +80,21 @@ export default function Footer() {
               Enlaces rápidos
             </h4>
             <ul className="space-y-1 sm:space-y-2">
-              {["Inicio", "Sobre mí", "Proyectos", "Habilidades", "Contacto"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm"
+              {[
+                { name: "Inicio", id: "hero" },
+                { name: "Sobre mí", id: "about" },
+                { name: "Proyectos", id: "projects" },
+                { name: "Habilidades", id: "skills" },
+                { name: "Curriculum", id: "resume" },
+                { name: "Contacto", id: "contact" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm text-left"
                   >
-                    {item}
-                  </a>
+                    {item.name}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -90,12 +105,12 @@ export default function Footer() {
             <ul className="space-y-1 sm:space-y-2">
               {["Desarrollo Web", "Aplicaciones Móviles", "UI/UX Design", "Consultoría"].map((item) => (
                 <li key={item}>
-                  <a
-                    href="#contact"
-                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm"
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm text-left"
                   >
                     {item}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

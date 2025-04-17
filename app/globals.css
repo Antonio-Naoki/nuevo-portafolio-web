@@ -122,3 +122,29 @@ body {
   will-change: transform;
   backface-visibility: hidden;
 }
+
+/* Estilos para impresión del CV */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Asegurarse de que el CV ocupe toda la página */
+  .print-cv {
+    width: 100%;
+    height: 100%;
+    page-break-inside: avoid;
+  }
+}

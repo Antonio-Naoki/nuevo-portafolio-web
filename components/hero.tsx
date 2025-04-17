@@ -21,7 +21,7 @@ export default function Hero() {
   }, [index])
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative px-4 sm:px-6">
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center relative px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

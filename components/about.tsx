@@ -34,7 +34,7 @@ export default function About() {
             }}
           >
             <Image
-              src="https://i.postimg.cc/W3csXsyy/imag-2.jpg"
+              src="https://i.postimg.cc/mr9vhxTg/img-1.jpg"
               alt="Antonio Morales"
               fill
               className="object-cover object-center"

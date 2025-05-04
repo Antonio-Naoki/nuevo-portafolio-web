@@ -85,7 +85,6 @@ export default function Footer() {
                 { name: "Sobre mí", id: "about" },
                 { name: "Proyectos", id: "projects" },
                 { name: "Habilidades", id: "skills" },
-                { name: "Curriculum", id: "resume" },
                 { name: "Contacto", id: "contact" },
               ].map((item) => (
                 <li key={item.name}>

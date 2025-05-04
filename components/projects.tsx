@@ -38,7 +38,7 @@ const projects = [
     image: "https://i.postimg.cc/wv5grS8j/mg-3.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/Antonio-Naoki/nuevo-portafolio-web",
-    live: "#",
+    live: "https://v0-modern-software-website-six.vercel.app/",
     type: "Aplicación web (Next.js)",
     featured: false,
   },

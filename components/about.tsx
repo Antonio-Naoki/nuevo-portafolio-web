@@ -34,7 +34,7 @@ export default function About() {
             }}
           >
             <Image
-              src="https://i.postimg.cc/mr9vhxTg/img-1.jpg"
+              src="https://i.postimg.cc/gjBWX0fV/mejorada-con-ia.png"
               alt="Antonio Morales"
               fill
               className="object-cover object-center"

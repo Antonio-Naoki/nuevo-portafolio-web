@@ -8,7 +8,6 @@ import Hero from "@/components/hero"
 import About from "@/components/about"
 import Projects from "@/components/projects"
 import Skills from "@/components/skills"
-import Resume from "@/components/resume"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import ThemeToggle from "@/components/theme-toggle"
@@ -108,7 +107,6 @@ export default function Home() {
         <About />
         <Projects />
         <Skills />
-        <Resume />
         <Contact />
         <Footer />
       </motion.div>

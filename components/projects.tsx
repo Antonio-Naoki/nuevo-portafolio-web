@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
-import { Github } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 
 const projects = [
   {
@@ -21,17 +21,29 @@ const projects = [
   },
   {
     id: 2,
+    title: "ClickOnInformationDanger",
+    description:
+      "Demostración educativa sobre huella digital que muestra en tiempo real la información que los sitios web pueden recopilar de tu dispositivo.",
+    image: "https://i.postimg.cc/9MKV80QL/imagen9.png",
+    technologies: ["HTML5", "CSS3", "JavaScript", "API Geolocalización", "Fingerprinting"],
+    github: "https://github.com/Antonio-Naoki/ClickOnInformationDanger",
+    live: "https://clickoninformationdanger.netlify.app",
+    type: "Proyecto Educativo (Web)",
+    featured: false,
+  },
+  {
+    id: 3,
     title: "Nuevo Portafolio Web",
     description: "Versión actualizada de mi portafolio personal con diseño moderno y tecnologías de vanguardia.",
     image: "https://i.postimg.cc/wv5grS8j/mg-3.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/Antonio-Naoki/nuevo-portafolio-web",
-    live: "#",
+    live: "https://v0-modern-software-website-six.vercel.app/",
     type: "Aplicación web (Next.js)",
     featured: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "Priver Movie App",
     description: "Catálogo de películas con datos consumidos de una API externa.",
     image:
@@ -42,7 +54,7 @@ const projects = [
     type: "Aplicación móvil (Flutter)",
   },
   {
-    id: 4,
+    id: 5,
     title: "Cerdo App",
     description: "Calcula el peso de cerdos sin balanza usando algoritmos basados en medidas corporales.",
     image:
@@ -53,7 +65,7 @@ const projects = [
     type: "Aplicación móvil (Flutter)",
   },
   {
-    id: 5,
+    id: 6,
     title: "Dolar Estado VE",
     description: "Extrae y muestra tasas de cambio del dólar (BCV y paralelo) en tiempo real.",
     image:
@@ -64,7 +76,7 @@ const projects = [
     type: "Web scraping (Python)",
   },
   {
-    id: 6,
+    id: 7,
     title: "Filter Emails",
     description: "Limpia y formatea archivos Excel (.xlsx) para gestión de correos masivos.",
     image:
@@ -135,8 +147,10 @@ export default function Projects() {
                         {project.type}
                       </Badge>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">{project.title}</h3>
-                    <p className="text-gray-400 mb-4 text-sm sm:text-base">{project.description}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm sm:text-base">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech) => (
@@ -149,7 +163,7 @@ export default function Projects() {
                     <div className="flex space-x-4">
                       <a
                         href={project.github}
-                        className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub Repository"
@@ -157,6 +171,18 @@ export default function Projects() {
                         <Github size={18} className="sm:w-5 sm:h-5" />
                         <span className="text-sm sm:text-base">Ver código</span>
                       </a>
+                      {project.live && project.live !== "#" && (
+                        <a
+                          href={project.live}
+                          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                        >
+                          <ExternalLink size={18} className="sm:w-5 sm:h-5" />
+                          <span className="text-sm sm:text-base">Ver demo</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -186,7 +212,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300"
+      className="bg-gray-100/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 hover:border-blue-500/50 transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -10 }}
@@ -216,8 +242,8 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       </div>
 
       <div className="p-4 sm:p-6">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">{project.title}</h3>
-        <p className="text-gray-400 mb-4 text-xs sm:text-sm">{project.description}</p>
+        <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 text-xs sm:text-sm">{project.description}</p>
 
         <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
           {project.technologies.map((tech) => (
@@ -234,7 +260,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         <div className="flex space-x-4">
           <a
             href={project.github}
-            className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Repository"
@@ -242,6 +268,18 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             <Github size={16} className="sm:w-5 sm:h-5" />
             <span className="text-xs sm:text-sm">Ver código</span>
           </a>
+          {project.live && project.live !== "#" && (
+            <a
+              href={project.live}
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live Demo"
+            >
+              <ExternalLink size={16} className="sm:w-5 sm:h-5" />
+              <span className="text-xs sm:text-sm">Ver demo</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

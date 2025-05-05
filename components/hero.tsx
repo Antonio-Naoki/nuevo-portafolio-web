@@ -54,7 +54,7 @@ export default function Hero() {
     },
     // Nuevas tecnologías
     {
-      name: "SQL",
+      name: "PostgreSQL",
       icon: "https://imgs.search.brave.com/qfSJQ0lZCWEWv9sY7i9iOYfFQ6Sf0N3XQjqJ2kB23Bk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8y/LzI5L1Bvc3RncmVz/cWxfZWxlcGhhbnQu/c3Zn",
       color: "#0078D4",
     },
@@ -86,72 +86,73 @@ export default function Hero() {
           Desarrollador de Software
         </h2>
 
-        {/* Iconos de tecnologías con efectos interactivos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 mx-auto overflow-x-auto pb-2 max-w-full"
-        >
-          {technologies.map((tech) => (
-            <motion.div
-              key={tech.name}
-              className="relative w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex-shrink-0 cursor-pointer"
-              whileHover={{
-                scale: 1.2,
-                rotate: [0, -10, 10, -10, 0],
-                transition: { duration: 0.5 },
-              }}
-              whileTap={{
-                scale: 0.9,
-                rotate: 360,
-                transition: { duration: 0.5 },
-              }}
-              onClick={() => setActiveIcon(activeIcon === tech.name ? null : tech.name)}
-            >
-              <Image
-                src={tech.icon || "/placeholder.svg"}
-                alt={tech.name}
-                width={40}
-                height={40}
-                className="w-full h-full object-contain"
-                unoptimized
-              />
+        {/* Contenedor principal con padding para los tooltips */}
+        <div className="px-2 py-4 mb-4 sm:mb-6 relative">
+          {/* Iconos de tecnologías con efectos interactivos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex items-center justify-center gap-3 sm:gap-4 mx-auto"
+          >
+            {technologies.map((tech) => (
+              <motion.div
+                key={tech.name}
+                className="relative w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex-shrink-0 cursor-pointer"
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{
+                  scale: 0.9,
+                  transition: { duration: 0.3 },
+                }}
+                onClick={() => setActiveIcon(activeIcon === tech.name ? null : tech.name)}
+              >
+                <Image
+                  src={tech.icon || "/placeholder.svg"}
+                  alt={tech.name}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                  unoptimized
+                />
 
-              {/* Efecto de pulso al hacer clic */}
-              <AnimatePresence>
-                {activeIcon === tech.name && (
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0.8 }}
-                    animate={{
-                      scale: [1, 1.5, 1.8],
-                      opacity: [0.7, 0.5, 0],
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8 }}
-                    style={{ backgroundColor: tech.color }}
-                    className="absolute inset-0 rounded-full z-[-1]"
-                  />
-                )}
-              </AnimatePresence>
+                {/* Efecto de pulso al hacer clic */}
+                <AnimatePresence>
+                  {activeIcon === tech.name && (
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0.8 }}
+                      animate={{
+                        scale: [1, 1.3, 1.5],
+                        opacity: [0.7, 0.5, 0],
+                      }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6 }}
+                      style={{ backgroundColor: tech.color }}
+                      className="absolute inset-0 rounded-full z-[-1]"
+                    />
+                  )}
+                </AnimatePresence>
 
-              {/* Tooltip con el nombre de la tecnología */}
-              <AnimatePresence>
-                {activeIcon === tech.name && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-[10px] xs:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded whitespace-nowrap z-10"
-                  >
-                    {tech.name}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
+                {/* Tooltip con el nombre de la tecnología */}
+                <AnimatePresence>
+                  {activeIcon === tech.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-[10px] xs:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded whitespace-nowrap z-10"
+                    >
+                      {tech.name}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
         <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
           <Button

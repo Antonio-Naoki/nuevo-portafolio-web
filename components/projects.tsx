@@ -102,7 +102,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-white dark:bg-transparent"
+      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-white dark:bg-transparent"
     >
       <motion.div style={{ opacity, y }} className="max-w-6xl mx-auto">
         <motion.h2
@@ -110,7 +110,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
         >
           Proyectos
         </motion.h2>
@@ -125,11 +125,11 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="mb-10 sm:mb-16"
+              className="mb-8 xs:mb-9 sm:mb-10 md:mb-12 lg:mb-16"
             >
               <div className="bg-gray-100/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-300 dark:border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-md">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="relative h-56 sm:h-64 md:h-auto order-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 xs:gap-4 sm:gap-5 md:gap-6">
+                  <div className="relative h-48 xs:h-52 sm:h-56 md:h-auto order-1">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -137,50 +137,59 @@ export default function Projects() {
                       className="object-cover"
                       unoptimized
                     />
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-blue-600 text-white">Destacado</Badge>
+                    <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                      <Badge className="bg-blue-600 text-white text-[10px] xs:text-xs">Destacado</Badge>
                     </div>
                   </div>
-                  <div className="p-4 sm:p-6 flex flex-col justify-center order-2">
+                  <div className="p-3 xs:p-4 sm:p-5 md:p-6 flex flex-col justify-center order-2">
                     <div className="mb-2">
-                      <Badge variant="outline" className="bg-purple-900/20 text-purple-400 border-purple-500/30">
+                      <Badge
+                        variant="outline"
+                        className="bg-purple-900/20 text-purple-400 border-purple-500/30 text-[10px] xs:text-xs"
+                      >
                         {project.type}
                       </Badge>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+                    <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm sm:text-base">{project.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-3 xs:mb-4 text-xs xs:text-sm sm:text-base">
+                      {project.description}
+                    </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1.5 xs:gap-2 mb-3 xs:mb-4">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="bg-blue-900/20 text-blue-400 border-blue-500/30">
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="bg-blue-900/20 text-blue-400 border-blue-500/30 text-[10px] xs:text-xs"
+                        >
                           {tech}
                         </Badge>
                       ))}
                     </div>
 
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-3 xs:space-x-4">
                       <a
                         href={project.github}
-                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 xs:gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub Repository"
                       >
-                        <Github size={18} className="sm:w-5 sm:h-5" />
-                        <span className="text-sm sm:text-base">Ver código</span>
+                        <Github size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+                        <span className="text-xs xs:text-sm sm:text-base">Ver código</span>
                       </a>
                       {project.live && project.live !== "#" && (
                         <a
                           href={project.live}
-                          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+                          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 xs:gap-2"
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Live Demo"
                         >
-                          <ExternalLink size={18} className="sm:w-5 sm:h-5" />
-                          <span className="text-sm sm:text-base">Ver demo</span>
+                          <ExternalLink size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+                          <span className="text-xs xs:text-sm sm:text-base">Ver demo</span>
                         </a>
                       )}
                     </div>
@@ -191,7 +200,7 @@ export default function Projects() {
           ))}
 
         {/* Other Projects */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8">
           {projects
             .filter((p) => !p.featured)
             .map((project) => (
@@ -217,7 +226,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -10 }}
     >
-      <div className="relative h-40 sm:h-48 overflow-hidden">
+      <div className="relative h-32 xs:h-36 sm:h-40 md:h-48 overflow-hidden">
         <motion.div
           style={{
             y: isHovered ? -10 : 0,
@@ -234,50 +243,57 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             unoptimized
           />
         </motion.div>
-        <div className="absolute top-4 left-4">
-          <Badge variant="outline" className="bg-purple-900/20 text-purple-400 border-purple-500/30 text-xs sm:text-sm">
+        <div className="absolute top-3 left-3">
+          <Badge
+            variant="outline"
+            className="bg-purple-900/20 text-purple-400 border-purple-500/30 text-[10px] xs:text-xs"
+          >
             {project.type}
           </Badge>
         </div>
       </div>
 
-      <div className="p-4 sm:p-6">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 text-xs sm:text-sm">{project.description}</p>
+      <div className="p-3 xs:p-4 sm:p-5 md:p-6">
+        <h3 className="text-base xs:text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-3 xs:mb-4 text-[10px] xs:text-xs sm:text-sm">
+          {project.description}
+        </p>
 
-        <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
+        <div className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2 mb-3 xs:mb-4">
           {project.technologies.map((tech) => (
             <Badge
               key={tech}
               variant="outline"
-              className="bg-blue-900/20 text-blue-400 border-blue-500/30 text-xs sm:text-sm"
+              className="bg-blue-900/20 text-blue-400 border-blue-500/30 text-[10px] xs:text-xs"
             >
               {tech}
             </Badge>
           ))}
         </div>
 
-        <div className="flex space-x-4">
+        <div className="flex space-x-3 xs:space-x-4">
           <a
             href={project.github}
-            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 xs:gap-2"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Repository"
           >
-            <Github size={16} className="sm:w-5 sm:h-5" />
-            <span className="text-xs sm:text-sm">Ver código</span>
+            <Github size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+            <span className="text-[10px] xs:text-xs sm:text-sm">Ver código</span>
           </a>
           {project.live && project.live !== "#" && (
             <a
               href={project.live}
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 xs:gap-2"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Live Demo"
             >
-              <ExternalLink size={16} className="sm:w-5 sm:h-5" />
-              <span className="text-xs sm:text-sm">Ver demo</span>
+              <ExternalLink size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
+              <span className="text-[10px] xs:text-xs sm:text-sm">Ver demo</span>
             </a>
           )}
         </div>

@@ -66,7 +66,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black"
+      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black"
     >
       <motion.div style={{ opacity, y }} className="max-w-6xl mx-auto">
         <motion.h2
@@ -74,12 +74,12 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
         >
           Habilidades
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-8">
           {skills.map((skillGroup, groupIndex) => (
             <motion.div
               key={skillGroup.category}
@@ -87,19 +87,19 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-300 dark:border-gray-800 shadow-md"
+              className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 border border-gray-300 dark:border-gray-800 shadow-md"
             >
-              <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-center text-blue-600 dark:text-blue-400">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-center text-blue-600 dark:text-blue-400">
                 {skillGroup.category}
               </h3>
 
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6">
                 {skillGroup.items.map((skill, index) => (
                   <div key={skill.name}>
-                    <div className="flex justify-between items-center mb-2">
+                    <div className="flex justify-between items-center mb-1.5 xs:mb-2">
                       <div className="flex items-center">
                         <motion.i
-                          className={`${iconMap[skill.name] || "devicon-javascript-plain"} text-xl sm:text-2xl mr-2 text-blue-600 dark:text-blue-500`}
+                          className={`${iconMap[skill.name] || "devicon-javascript-plain"} text-base xs:text-lg sm:text-xl md:text-2xl mr-1.5 xs:mr-2 text-blue-600 dark:text-blue-500`}
                           animate={{
                             y: [0, -5, 0],
                           }}
@@ -109,12 +109,16 @@ export default function Skills() {
                             delay: index * 0.2,
                           }}
                         ></motion.i>
-                        <span className="text-sm sm:text-base text-gray-800 dark:text-gray-200">{skill.name}</span>
+                        <span className="text-xs xs:text-sm sm:text-base text-gray-800 dark:text-gray-200">
+                          {skill.name}
+                        </span>
                       </div>
-                      <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{skill.level}%</span>
+                      <span className="text-[10px] xs:text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                        {skill.level}%
+                      </span>
                     </div>
                     <motion.div
-                      className="h-1.5 sm:h-2 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"
+                      className="h-1 xs:h-1.5 sm:h-2 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 0.5 }}

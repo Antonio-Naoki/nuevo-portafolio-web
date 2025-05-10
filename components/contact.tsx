@@ -17,6 +17,7 @@ import {
   Loader2,
   CheckCircle,
   XCircle,
+  Send,
 } from "lucide-react"
 import emailjs from "@emailjs/browser"
 
@@ -177,15 +178,22 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-white dark:bg-transparent"
+      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-white dark:bg-transparent subtle-texture relative overflow-hidden"
     >
+      {/* Elementos de luz */}
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+      <div
+        className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] animate-pulse-slow"
+        style={{ animationDelay: "2s" }}
+      ></div>
+
       <motion.div style={{ opacity, y }} className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center gradient-text text-shadow"
         >
           Contacto
         </motion.h2>
@@ -197,14 +205,18 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-blue-600 dark:text-blue-400">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 gradient-text">
               Ponte en contacto
             </h3>
 
             <div className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6">
-              <div className="flex items-center space-x-3 xs:space-x-4">
-                <div className="bg-blue-100 dark:bg-blue-500/20 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0">
-                  <Mail className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
+              <motion.div
+                className="flex items-center space-x-3 xs:space-x-4 card-hover p-3 rounded-lg glass-effect"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div className="bg-gradient-to-r from-blue-600 to-blue-400 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0 shadow-md">
+                  <Mail className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-xs xs:text-sm sm:text-base text-gray-900 dark:text-white">Email</h4>
@@ -212,11 +224,15 @@ export default function Contact() {
                     antoniomorale111@gmail.com
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-3 xs:space-x-4">
-                <div className="bg-blue-100 dark:bg-blue-500/20 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0">
-                  <Phone className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
+              <motion.div
+                className="flex items-center space-x-3 xs:space-x-4 card-hover p-3 rounded-lg glass-effect"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div className="bg-gradient-to-r from-purple-600 to-purple-400 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0 shadow-md">
+                  <Phone className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-xs xs:text-sm sm:text-base text-gray-900 dark:text-white">
@@ -224,11 +240,15 @@ export default function Contact() {
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400 text-[10px] xs:text-xs sm:text-sm">+58 414-4026495</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-3 xs:space-x-4">
-                <div className="bg-blue-100 dark:bg-blue-500/20 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0">
-                  <MapPin className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" />
+              <motion.div
+                className="flex items-center space-x-3 xs:space-x-4 card-hover p-3 rounded-lg glass-effect"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <div className="bg-gradient-to-r from-cyan-600 to-cyan-400 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0 shadow-md">
+                  <MapPin className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" />
                 </div>
                 <div>
                   <h4 className="font-medium text-xs xs:text-sm sm:text-base text-gray-900 dark:text-white">
@@ -238,7 +258,7 @@ export default function Contact() {
                     Valencia, Venezuela
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8">
@@ -251,28 +271,33 @@ export default function Contact() {
                     icon: <Github size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />,
                     url: "https://github.com/Antonio-Naoki",
                     label: "GitHub",
+                    color: "from-gray-700 to-gray-500",
                   },
                   {
                     icon: <Linkedin size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />,
                     url: "https://www.linkedin.com/in/antonio-morales-23b781266",
                     label: "LinkedIn",
+                    color: "from-blue-600 to-blue-400",
                   },
                   {
                     icon: <Instagram size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />,
                     url: "https://www.instagram.com/antoniomorales2129?igsh=YzljYTk1ODg3Zg==",
                     label: "Instagram",
+                    color: "from-pink-600 to-purple-400",
                   },
                   {
                     icon: <MessageSquare size={14} className="xs:w-4 xs:h-4 sm:w-5 sm:h-5" />,
                     url: "https://wa.me/584144026495",
                     label: "WhatsApp",
+                    color: "from-green-600 to-green-400",
                   },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.url}
-                    className="bg-gray-200 dark:bg-gray-800 p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full text-gray-700 dark:text-gray-400 hover:text-white hover:bg-blue-600 transition-colors duration-300"
-                    whileHover={{ y: -5 }}
+                    className={`bg-gradient-to-r ${social.color} p-1.5 xs:p-2 sm:p-2.5 md:p-3 rounded-full text-white shadow-md hover:shadow-lg transition-all duration-300`}
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -283,7 +308,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 h-36 xs:h-40 sm:h-48 md:h-64 rounded-xl overflow-hidden shadow-md">
+            <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 h-36 xs:h-40 sm:h-48 md:h-64 rounded-xl overflow-hidden shadow-md gradient-border">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251637.95196238213!2d-68.14138595!3d10.1579729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8067c3f0c2c8f3%3A0xc215e1d4d5bdc835!2sValencia%2C%20Carabobo%2C%20Venezuela!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
                 width="100%"
@@ -302,9 +327,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-300 dark:border-gray-800 shadow-md"
+            className="glass-effect rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 border border-gray-300 dark:border-gray-800 shadow-md gradient-border"
           >
-            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-blue-600 dark:text-blue-400">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 gradient-text">
               Envíame un mensaje
             </h3>
 
@@ -352,7 +377,7 @@ export default function Contact() {
                       name="user_name"
                       value={formData.user_name}
                       onChange={handleChange}
-                      className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
                         errors.user_name ? "border-red-500" : ""
                       }`}
                       disabled={status === "loading"}
@@ -375,7 +400,7 @@ export default function Contact() {
                       type="email"
                       value={formData.user_email}
                       onChange={handleChange}
-                      className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
                         errors.user_email ? "border-red-500" : ""
                       }`}
                       disabled={status === "loading"}
@@ -398,7 +423,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
                         errors.message ? "border-red-500" : ""
                       }`}
                       disabled={status === "loading"}
@@ -410,7 +435,7 @@ export default function Contact() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 xs:py-3 sm:py-4 md:py-5 lg:py-6 text-xs xs:text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 xs:py-3 sm:py-4 md:py-5 lg:py-6 text-xs xs:text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 group"
                     disabled={status === "loading"}
                   >
                     {status === "loading" ? (
@@ -419,7 +444,10 @@ export default function Contact() {
                         Enviando...
                       </span>
                     ) : (
-                      "Enviar mensaje"
+                      <span className="flex items-center gap-1.5 xs:gap-2">
+                        Enviar mensaje
+                        <Send size={14} className="xs:w-4 xs:h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
                     )}
                   </Button>
                 </form>

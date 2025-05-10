@@ -66,7 +66,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black"
+      className="min-h-screen py-12 xs:py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-black subtle-texture"
     >
       <motion.div style={{ opacity, y }} className="max-w-6xl mx-auto">
         <motion.h2
@@ -74,7 +74,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12 text-center gradient-text text-shadow"
         >
           Habilidades
         </motion.h2>
@@ -87,9 +87,9 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 border border-gray-300 dark:border-gray-800 shadow-md"
+              className="bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 border border-gray-300 dark:border-gray-800 shadow-md gradient-border card-hover"
             >
-              <h3 className="text-base xs:text-lg sm:text-xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-center text-blue-600 dark:text-blue-400">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-center gradient-text">
                 {skillGroup.category}
               </h3>
 
@@ -118,19 +118,32 @@ export default function Skills() {
                       </span>
                     </div>
                     <motion.div
-                      className="h-1 xs:h-1.5 sm:h-2 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"
+                      className="h-1 xs:h-1.5 sm:h-2 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner"
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 0.5 }}
                       viewport={{ once: true }}
                     >
                       <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-600"
+                        className="h-full bg-gradient-to-r from-blue-500 to-purple-600 relative"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         transition={{ duration: 1, delay: 0.5 }}
                         viewport={{ once: true }}
-                      ></motion.div>
+                      >
+                        <motion.div
+                          className="absolute top-0 right-0 h-full w-1 bg-white/30"
+                          animate={{
+                            x: [10, -5, 10],
+                            opacity: [0, 1, 0],
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                          }}
+                        />
+                      </motion.div>
                     </motion.div>
                   </div>
                 ))}

@@ -1,24 +1,88 @@
-## 🚀 Portafolio Profesional
 
-¡Hola! Soy Antonio Morales, desarrollador de software apasionado por crear soluciones digitales innovadoras y eficientes.
+# Sistema de Gestión de Tickets Técnicos
 
-## **✨ Tecnologías Principales**  
-<p align="center">
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
-</p>
+Sistema web para la gestión de tickets de soporte técnico desarrollado con React, Express y PostgreSQL.
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=TuUsuarioGitHub&label=Profile%20views&color=0e75b6&style=flat" alt="Visitas al perfil"> </p>
-🎯 Objetivo
-"Construir soluciones tecnológicas que impacten positivamente en la vida de las personas."
+## Requisitos Previos
 
-⭐ ¡Si te gusta mi trabajo, dale una estrella a mis repositorios! ⭐
+- Node.js v20 o superior
+- PostgreSQL v16
+- npm (incluido con Node.js)
 
-Visita mi portafolio web: 
+## Configuración Local
 
-`https://v0-modern-software-website-six.vercel.app/`
- 
+1. Clonar el proyecto:
+```bash
+git clone <url-del-repositorio>
+cd <nombre-directorio>
+``` 
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Configurar base de datos PostgreSQL:
+
+```sql
+CREATE DATABASE tickets_db;
+```
+
+4. Restaurar el backup de la base de datos:
+```bash
+psql tickets_db < backup.sql
+```
+
+5. Configurar variables de entorno:
+Crear un archivo `.env` en la raíz del proyecto con:
+```
+DATABASE_URL=postgresql://neondb_owner:tu_contraseña@localhost:5432/tickets_db
+SESSION_SECRET=mi_clave_secreta_123
+```
+
+## Ejecución del Proyecto
+
+1. Iniciar en modo desarrollo:
+```bash
+npm run dev
+```
+
+2. Acceder a la aplicación:
+- Frontend: http://localhost:5000
+- API: http://localhost:5000/api
+
+## Usuarios Predeterminados
+
+1. Técnico:
+- Usuario: alex_support
+- Contraseña: password123
+
+2. Empleado:
+- Usuario: sarah_kim
+- Contraseña: password123
+
+## Funcionalidades Principales
+
+- Gestión de tickets (crear, asignar, actualizar, cerrar)
+- Sistema de comentarios en tickets
+- Panel de control con estadísticas
+- Gestión de usuarios y roles
+- Notificaciones en tiempo real
+- Filtros y búsqueda avanzada
+
+## Estructura del Proyecto
+
+```
+├── client/          # Frontend React
+├── server/          # Backend Express
+├── shared/          # Tipos y esquemas compartidos
+└── db/              # Configuración de base de datos
+```
+
+## Tecnologías Principales
+
+- Frontend: React, TailwindCSS, Shadcn/ui
+- Backend: Express, Drizzle ORM
+- Base de datos: PostgreSQL
+- Autenticación: Passport.js
+- API: REST

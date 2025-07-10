@@ -1,89 +1,145 @@
 
-# Sistema de Gestión de Tickets Técnicos
+# Dev Portfolio Prime
 
-Sistema web para la gestión de tickets de soporte técnico desarrollado con React, Express y PostgreSQL.
+Portfolio web personal diseñado para mostrar proyectos de desarrollo y habilidades de manera elegante e interactiva. Construido con Next.js y diseñado con TailwindCSS, incluye animaciones y efectos visuales modernos para una experiencia de usuario excepcional.
 
-## Requisitos Previos
+## 🚀 Características Principales
 
-- Node.js v20 o superior
-- PostgreSQL v16
-- npm (incluido con Node.js)
+- **Animaciones interactivas**: Partículas de fondo reactivas con tsParticles
+- **Efecto de escritura animada**: Presentación dinámica del nombre en el hero
+- **Secciones completas**: Sobre mí, Proyectos, Habilidades y Contacto
+- **Tecnologías interactivas**: Iconos con efectos hover y animaciones
+- **Temas claro/oscuro**: Cambio dinámico de tema con next-themes
+- **Efectos de parallax**: Elementos decorativos con movimiento
+- **Cursor personalizado**: Experiencia de usuario mejorada
+- **Responsive design**: Optimizado para todos los dispositivos
+- **Formulario de contacto**: Integración con EmailJS
 
-## Configuración Local
+## 🛠️ Tecnologías Utilizadas
 
-1. Clonar el proyecto:
-```bash
-git clone <url-del-repositorio>
-cd <nombre-directorio>
-``` 
+### Frontend
+- **Next.js 15** - Framework React para producción
+- **TypeScript** - Tipado estático
+- **TailwindCSS** - Framework de CSS utilitario
+- **Framer Motion** - Librería de animaciones
+- **Shadcn/ui** - Componentes UI accesibles
+- **Radix UI** - Componentes primitivos
 
-2. Instalar dependencias:
-```bash
-npm install
+### Efectos y Animaciones
+- **@tsparticles/react** - Sistema de partículas interactivas
+- **Lucide React** - Iconos modernos
+- **React Hook Form** - Manejo de formularios
+- **Zod** - Validación de esquemas
+
+### Servicios
+- **EmailJS** - Envío de emails desde el frontend
+
+## 🚀 Instalación y Configuración
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <url-del-repositorio>
+   cd dev-portfolio-prime
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Configurar variables de entorno:**
+   Crear un archivo `.env.local` en la raíz del proyecto:
+   ```env
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=tu_service_id
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=tu_template_id
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=tu_public_key
+   ```
+
+4. **Ejecutar en modo desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Acceder a la aplicación:**
+   - Desarrollo: http://localhost:3000
+
+## 🏗️ Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta ESLint para verificar el código
+
+## 📁 Estructura del Proyecto
+
+```
+├── app/                    # Directorio principal de Next.js
+│   ├── api/               # Rutas API
+│   ├── globals.css        # Estilos globales
+│   ├── layout.tsx         # Layout principal
+│   └── page.tsx           # Página principal
+├── components/            # Componentes reutilizables
+│   ├── ui/               # Componentes UI base
+│   ├── about.tsx         # Sección Sobre mí
+│   ├── contact.tsx       # Sección Contacto
+│   ├── hero.tsx          # Sección Hero
+│   ├── projects.tsx      # Sección Proyectos
+│   ├── skills.tsx        # Sección Habilidades
+│   └── ...               # Otros componentes
+├── hooks/                # Hooks personalizados
+├── lib/                  # Utilidades y configuraciones
+├── public/               # Archivos estáticos
+└── styles/               # Archivos de estilos
 ```
 
-3. Configurar base de datos PostgreSQL:
+## 🎨 Personalización
 
-```sql
-CREATE DATABASE tickets_db;
-```
+### Información Personal
+Edita el archivo `components/hero.tsx` para cambiar:
+- Nombre principal
+- Título profesional
+- Tecnologías mostradas
 
-4. Restaurar el backup de la base de datos:
-```bash
-psql tickets_db < backup.sql
-```
+### Proyectos
+Modifica `components/projects.tsx` para agregar tus proyectos.
 
-5. Configurar variables de entorno:
-Crear un archivo `.env` en la raíz del proyecto con:
-```
-DATABASE_URL=postgresql://neondb_owner:tu_contraseña@localhost:5432/tickets_db
-SESSION_SECRET=mi_clave_secreta_123
-```
+### Habilidades
+Actualiza `components/skills.tsx` con tus tecnologías.
 
-## Ejecución del Proyecto
+### Contacto
+Configura `components/contact.tsx` con tu información de contacto.
 
-1. Iniciar en modo desarrollo:
-```bash
-npm run dev
-```
+## 🚀 Despliegue
 
-2. Acceder a la aplicación:
-- Frontend: http://localhost:5000
-- API: http://localhost:5000/api
+### Vercel (Recomendado)
+1. Conecta tu repositorio a Vercel
+2. Configura las variables de entorno
+3. Despliega automáticamente
 
-## Usuarios Predeterminados
+### Netlify
+1. Conecta tu repositorio a Netlify
+2. Configura el build command: `npm run build`
+3. Configura las variables de entorno
 
-1. Técnico:
-- Usuario: alex_support
-- Contraseña: password123
+## 🤝 Contribuciones
 
-2. Empleado:
-- Usuario: sarah_kim
-- Contraseña: password123
+Las contribuciones son bienvenidas. Por favor:
 
-## Funcionalidades Principales
+1. Fork el proyecto
+2. Crea una branch para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la branch (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-- Gestión de tickets (crear, asignar, actualizar, cerrar)
-- Sistema de comentarios en tickets
-- Panel de control con estadísticas
-- Gestión de usuarios y roles
-- Notificaciones en tiempo real
-- Filtros y búsqueda avanzada
+## 📝 Licencia
 
-## Estructura del Proyecto
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
 
-```
-├── client/          # Frontend React
-├── server/          # Backend Express
-├── shared/          # Tipos y esquemas compartidos
-└── db/              # Configuración de base de datos
-```
+## 📞 Contacto
 
-## Tecnologías Principales
+**Antonio Morales** - Desarrollador de Software
 
-- Frontend: React, TailwindCSS, Shadcn/ui
-- Backend: Express, Drizzle ORM
-- Base de datos: PostgreSQL
-- Autenticación: Passport.js
-- API: REST
+---
+
+⭐ ¡No olvides dar una estrella al proyecto si te ha sido útil!
 

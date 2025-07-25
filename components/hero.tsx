@@ -66,7 +66,7 @@ export default function Hero() {
     },
     {
       name: "JavaScript",
-      icon: "https://imgs.search.brave.com/hal1PgQLBcgo3zcQQYtiz_ydmTsNkJXQp0CWmPklOc4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC9qYXZhc2Ny/aXB0LWpzLWljb24t/NTEyeDUxMi1xM2ln/d2xuNi5wbmc",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       color: "#F7DF1E",
     },
   ]

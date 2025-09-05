@@ -30,7 +30,7 @@ export default function Hero() {
   const technologies = [
     {
       name: "Flutter",
-      icon: "https://imgs.search.brave.com/1ack4jU3uBX-FOTsAiyidYh_M3wxaXqJeevt9W5IxFw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/djIvMSo1LWFvSzhJ/Qm1YdmU1d2hCUU05/MEdBLnBuZw",
+      icon: "https://imgs.search.brave.com/W5bElpuVIDaYpQH7z4UvSnImcO-KQZa_wsBUOgX7mgM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9icmFuZHMt/YW5kLXNvY2lhbC1t/ZWRpYS9mbHV0dGVy/LWljb24ucG5n",
       color: "#027DFD",
     },
     {

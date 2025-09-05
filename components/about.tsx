@@ -92,10 +92,10 @@ export default function About() {
 
           <div className="space-y-2 xs:space-y-3 sm:space-y-4">
             {[
-              "Soy un desarrollador mobile apasionado por crear experiencias digitales excepcionales.",
-              "Con más de 4 años de experiencia en el desarrollo de software, me especializo en tecnologías modernas como Flutter, Python y AI.",
-              "Mi enfoque se centra en construir aplicaciones rápidas, accesibles y visualmente atractivas que resuelvan problemas reales.",
-              "Cuando no estoy codificando, me gusta explorar nuevas tecnologías, contribuir a proyectos open source y compartir conocimientos con la comunidad de desarrolladores.",
+              "Soy Antonio Morales, un desarrollador de software y programador de aplicaciones apasionado por crear experiencias digitales excepcionales.",
+              "Como programador freelancer con más de 4 años de experiencia, ofrezco servicios de desarrollo de páginas web y soluciones móviles.",
+              "Me especializo en tecnologías modernas y me considero un experto en IA, aplicando inteligencia artificial para construir aplicaciones rápidas, accesibles y visualmente atractivas.",
+              "Cuando no estoy codificando, me gusta explorar nuevas tecnologías, contribuir a proyectos open source y compartir mis conocimientos con la comunidad de desarrolladores.",
             ].map((paragraph, index) => (
               <ParallaxWrapper key={index} speed={0.1 + index * 0.05} direction="up">
                 <motion.div

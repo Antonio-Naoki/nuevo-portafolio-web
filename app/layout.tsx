@@ -10,12 +10,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 // SEO Metadata
 const siteConfig = {
-  name: "Antonio Morales | Desarrollador de Software",
-  description: "Portfolio de Antonio Morales, Desarrollador de Software especializado en Flutter, Python y tecnologías web. Explora mis proyectos y habilidades.",
+  name: "Antonio Morales | Desarrollador de Software y Experto en IA",
+  description: "Conoce el portafolio de Antonio Morales, desarrollador de software y programador freelancer. Ofrezco servicios de desarrollo de páginas web y como programador de aplicaciones. Apasionado por la tecnología y experto en IA, transformo ideas en soluciones digitales.",
   url: "https://antonio-morales.vercel.app/",
   ogImage: "https://antonio-morales.vercel.app/images/code-background.jpg",
   author: "Antonio Morales",
-  keywords: ["Desarrollador de Software", "Flutter", "Python", "Django", "React", "Next.js", "Desarrollador Web", "Portfolio", "API", "Backend", "Frontend"],
+  keywords: ["desarrollador de software", "servicios de desarrollo de paginas web", "programador de aplicaciones", "experto en IA", "programador freelancer", "Antonio Morales", "Flutter", "Python", "Django", "React", "Next.js", "Desarrollador Web", "Portfolio", "API", "Backend", "Frontend"],
 }
 
 export const metadata: Metadata = {

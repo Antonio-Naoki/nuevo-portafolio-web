@@ -11,11 +11,11 @@ const projects = [
   {
     id: 1,
     title: "DigiMedApp",
-    description: "Sistema de gestión de consultas médicas con integración de IA para diagnóstico predictivo.",
+    description: "Como programador de aplicaciones y experto en IA, desarrollé un sistema de gestión de consultas médicas con integración de inteligencia artificial para diagnóstico predictivo.",
     image: "https://i.postimg.cc/gcMmCWJC/img-2.jpg",
     technologies: ["Flutter", "Firebase", "GraphQL", "IA"],
     github: "https://github.com/Antonio-Naoki/digimedapp",
-    live: "#",
+    live: "https://play.google.com/store/apps/details?id=app.priver.digimed",
     type: "Aplicación móvil (Flutter)",
     featured: true,
   },
@@ -34,7 +34,7 @@ const projects = [
   {
     id: 3,
     title: "Nuevo Portafolio Web",
-    description: "Versión actualizada de mi portafolio personal con diseño moderno y tecnologías de vanguardia.",
+    description: "Este proyecto es una muestra de mis servicios de desarrollo de páginas web, una versión actualizada de mi portafolio con diseño moderno y tecnologías de vanguardia.",
     image: "https://i.postimg.cc/wv5grS8j/mg-3.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/Antonio-Naoki/nuevo-portafolio-web",

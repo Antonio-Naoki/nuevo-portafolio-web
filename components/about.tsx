@@ -50,22 +50,22 @@ export default function About() {
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-7 sm:gap-8 md:gap-10 lg:gap-12 items-center"
       >
         <div className="perspective-1000 mx-auto md:mx-0 w-full max-w-[250px] xs:max-w-[280px] sm:max-w-sm md:max-w-none">
-          <ParallaxWrapper speed={0.15} direction="up">
-            <motion.div
-              className="relative w-full h-[250px] xs:h-[280px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl overflow-hidden transform-3d transition-transform duration-500 hover:rotate-y-10 hover:rotate-x-10 shadow-2xl glow"
-              whileHover={{
-                rotateY: 15,
-                rotateX: 5,
-                transition: { duration: 0.5 },
-              }}
-            >
-              <Image
-                src="https://i.postimg.cc/gjBWX0fV/mejorada-con-ia.png"
-                alt="Antonio Morales"
-                fill
-                className="object-cover object-center"
-                unoptimized
-              />
+        <ParallaxWrapper speed={0.15} direction="up">
+          <motion.div
+            className="relative w-full **h-[500px] xs:h-[560px] sm:h-[600px] md:h-[700px] lg:h-[800px]** rounded-xl overflow-hidden transform-3d transition-transform duration-500 hover:rotate-y-10 hover:rotate-x-10 shadow-2xl glow"
+            whileHover={{
+              rotateY: 15,
+              rotateX: 5,
+              transition: { duration: 0.5 },
+            }}
+          >
+            <Image
+              src="/imagen-about.jpeg"
+              alt="Antonio Morales"
+              fill
+              className="object-cover object-center"
+              unoptimized
+            />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end p-4 xs:p-5 sm:p-6">
                 <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white text-shadow">Antonio Morales</h3>
               </div>

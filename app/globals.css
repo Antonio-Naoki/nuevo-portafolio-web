@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -219,9 +220,6 @@ body {
 .rotate-x-10:hover {
   transform: rotateX(10deg);
 }
-
-/* Add DevIcon font */
-@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css");
 
 /* Cursor personalizado */
 @media (hover: hover) and (pointer: fine) {

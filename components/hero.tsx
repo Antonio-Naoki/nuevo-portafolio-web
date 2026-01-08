@@ -36,16 +36,16 @@ export default function Hero() {
     {
       name: "Python",
       icon: "https://imgs.search.brave.com/QlI3VhMNt8Zz9vPnBVV5FeBBvMC6Af5jOgRFEfz3_jw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/cy1kb3dubG9hZC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTYvMTAvUHl0aG9u/X2xvZ29faWNvbi03/MDB4Njk3LnBuZw",
-      color: "#FFD43B",
+      color: "#ddb731ff",
     },
     {
       name: "Firebase",
       icon: "https://imgs.search.brave.com/h8NLxguPIroQtmJ80y4WibxR8nfrsYIG_ZIJyG0676A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/djIvMSpEb2VKMFZM/dEowVFg5eVpkd19G/RmZnLnBuZw",
-      color: "#FFCA28",
+      color: "#d46a0dff",
     },
     {
       name: "Android",
-      icon: "https://imgs.search.brave.com/EuZUZ5Y0ZTr-hanJUbdTgr-QzPNyrDD_JL1LU5V9YTQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2MxL0FuZHJvaWRf/U3R1ZGlvX2ljb25f/KDIwMjMpLnN2Zw",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1745px-Android_robot.svg.png",
       color: "#3DDC84",
     },
     {
@@ -57,7 +57,7 @@ export default function Hero() {
     {
       name: "PostgreSQL",
       icon: "https://imgs.search.brave.com/qfSJQ0lZCWEWv9sY7i9iOYfFQ6Sf0N3XQjqJ2kB23Bk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8y/LzI5L1Bvc3RncmVz/cWxfZWxlcGhhbnQu/c3Zn",
-      color: "#0078D4",
+      color: "#e9eaebff",
     },
     {
       name: "Docker",
@@ -68,6 +68,20 @@ export default function Hero() {
       name: "JavaScript",
       icon: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       color: "#F7DF1E",
+    },
+    {
+      name: "Gemini",
+      icon: "https://static.vecteezy.com/system/resources/previews/055/687/065/non_2x/gemini-google-icon-symbol-logo-free-png.png",
+      color: "#120cadff",
+    },
+    {
+      name: "Linux",
+      icon: "https://usercontent.one/wp/roskilde-computerstue.dk/wp-content/uploads/2022/12/linux-tux-1-logo-png-transparent-2235685042-1024x1024.png?media=1754905682",
+      color: "#0b4504ff",
+    }, {
+      name: "SEO",
+      icon: "https://www.je-consulting.co.uk/wp-content/uploads/2024/04/SEO-%E2%80%93-Is-it-really-worth-it.png",
+      color: "#900c8cff",
     },
   ]
 

@@ -377,9 +377,8 @@ export default function Contact() {
                       name="user_name"
                       value={formData.user_name}
                       onChange={handleChange}
-                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
-                        errors.user_name ? "border-red-500" : ""
-                      }`}
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${errors.user_name ? "border-red-500" : ""
+                        }`}
                       disabled={status === "loading"}
                     />
                     {errors.user_name && (
@@ -400,9 +399,8 @@ export default function Contact() {
                       type="email"
                       value={formData.user_email}
                       onChange={handleChange}
-                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
-                        errors.user_email ? "border-red-500" : ""
-                      }`}
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${errors.user_email ? "border-red-500" : ""
+                        }`}
                       disabled={status === "loading"}
                     />
                     {errors.user_email && (
@@ -423,9 +421,8 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${
-                        errors.message ? "border-red-500" : ""
-                      }`}
+                      className={`bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border-gray-300 dark:border-gray-700 focus:border-blue-500 text-xs xs:text-sm text-gray-900 dark:text-white ${errors.message ? "border-red-500" : ""
+                        }`}
                       disabled={status === "loading"}
                     />
                     {errors.message && (
